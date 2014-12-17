@@ -1,0 +1,3 @@
+name="My-Docker"
+[build]
+build_class = "builder::MyBuilder"
