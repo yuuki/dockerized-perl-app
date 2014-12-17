@@ -12,7 +12,7 @@ my $port = $ENV{DB_PORT_3306_TCP_PORT};
             PrintError => 0,
             RaiseError => 1,
             ShowErrorStatement => 1,
-            AutoInactiveDestroy => 1,  sqlite_unicode => 1,
+            AutoInactiveDestroy => 1,
         }
     ],
 };
