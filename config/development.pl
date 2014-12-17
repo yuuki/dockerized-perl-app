@@ -1,12 +1,18 @@
 use File::Spec;
 use File::Basename qw(dirname);
 my $basedir = File::Spec->rel2abs(File::Spec->catdir(dirname(__FILE__), '..'));
-my $dbpath = File::Spec->catfile($basedir, 'db', 'development.db');
+# db info linked by fig
+my $host = $ENV{DB_PORT_3306_TCP_ADDR};
+my $port = $ENV{DB_PORT_3306_TCP_PORT};
 +{
     'DBI' => [
-        "dbi:SQLite:dbname=$dbpath", '', '',
+        "dbi:mysql:host=$host;port=$port;dbname=mydocker", 'nobody', 'nobody',
         +{
-            sqlite_unicode => 1,
+            AutoCommit => 1,
+            PrintError => 0,
+            RaiseError => 1,
+            ShowErrorStatement => 1,
+            AutoInactiveDestroy => 1,  sqlite_unicode => 1,
         }
     ],
 };

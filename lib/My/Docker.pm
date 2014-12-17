@@ -21,10 +21,9 @@ sub db {
         $c->{db} = My::Docker::DB->new(
             schema       => $schema,
             connect_info => [@$conf],
-            # I suggest to enable following lines if you are using mysql.
-            # on_connect_do => [
-            #     'SET SESSION sql_mode=STRICT_TRANS_TABLES;',
-            # ],
+            on_connect_do => [
+                'SET SESSION sql_mode=STRICT_TRANS_TABLES;',
+            ],
         );
     }
     $c->{db};

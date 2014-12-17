@@ -25,7 +25,7 @@ my $app = builder {
 };
 unless (caller) {
     my $port        = 5000;
-    my $host        = '127.0.0.1';
+    my $host        = '0.0.0.0';
     my $max_workers = 4;
 
     require Getopt::Long;
