@@ -1,0 +1,4 @@
+#!/bin/bash
+
+DIR=$(cd $(dirname $0) && pwd)
+exec carton exec plackup -E production -s Starlet --spawn-interval=1 --max-worker=5 -a $DIR/my-docker-server

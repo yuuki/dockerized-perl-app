@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DIR=$(cd $(dirname $0) && pwd)
+APPDIR=$DIR/../
+carton exec -- prove -I$APPDIR/lib $APPDIR/t

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+DIR=$(cd $(dirname $0) && pwd)
+mysql -h$DB_PORT_3306_TCP_ADDR -unobody -pnobody mydocker < $DIR/../db/mysql.sql

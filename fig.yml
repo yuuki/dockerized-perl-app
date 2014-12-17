@@ -1,0 +1,23 @@
+db:
+  image: mysql:5.5.40
+  environment:
+    - MYSQL_USER=nobody
+    - MYSQL_PASSWORD=nobody
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=mydocker
+  ports:
+    - "3306"
+setup:
+  build: .
+  command: script/db
+  links:
+    - db
+web:
+  build: .
+  command: carton exec perl script/my-docker-server
+  ports:
+    - "5000:5000"
+  volumes:
+    - ./:/src/app
+  links:
+    - db
