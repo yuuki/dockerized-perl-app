@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 ENV APPROOT /src/app
 RUN mkdir -p $APPROOT
-WORKDIR $APPROOT
+WORKDIR /src/app
 
 COPY cpanfile $APPROOT/cpanfile
 RUN carton install
