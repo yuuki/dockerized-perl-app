@@ -9,9 +9,9 @@ dependencies:
   override:
     - mkdir -p ~/docker
     - curl -L https://github.com/docker/fig/releases/download/1.0.1/fig-Linux-x86_64 > ~/fig; chmod +x ~/fig
-    - script/load_images ~/docker
+    - script/ci/load_images ~/docker
     - ~/fig build
-    - script/save_images ~/docker
+    - script/ci/save_images ~/docker
 test:
   override:
     - ~/fig run -d db
