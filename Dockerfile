@@ -5,6 +5,10 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
+ENV APPROOT /src/app
+RUN mkdir -p $APPROOT
+WORKDIR $APPROOT
+
 COPY cpanfile $APPROOT/cpanfile
 RUN carton install
 COPY ./ $APPROOT
