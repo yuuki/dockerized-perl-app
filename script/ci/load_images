@@ -3,5 +3,5 @@
 DIR=$1
 
 for image in $(find $DIR -type f -name ".tar"); do
-    if [[ -e ~/${image} ]]; then docker load -i ~/docker/${image}; fi
+    if [[ -e $DIR/${image} ]]; then docker load -i $DIR/${image}; fi
 done
